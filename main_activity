@@ -1,0 +1,87 @@
+package com.example.administrator.addnumberspart2;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.os.Build;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+
+
+
+
+public class MainActivity extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+
+    }
+    public void onButtonClick1(View v){
+        TextView t1=(TextView)findViewById(R.id.textView8);
+        t1.setText("Never give out your personal Email and Phone no to fishy websites or apps :)");
+
+
+    }
+    public void onButtonClick(View v){
+        int n1,n2, thesum;
+        EditText e1=(EditText)findViewById(R.id.editText);
+        EditText e2=(EditText)findViewById(R.id.editText2);
+        EditText e3=(EditText)findViewById(R.id.editText3);
+        TextView t1=(TextView)findViewById(R.id.textView);
+        TextView t2=(TextView)findViewById(R.id.textView5);
+        n1=Integer.parseInt(e1.getText().toString());
+        n2=Integer.parseInt(e2.getText().toString());
+        thesum = n1/( n2*n2);
+        t1.setText(Integer.toString(thesum));
+        if (thesum <16) {
+            t2.setText("Dear" + e3.getText() + "Your BMI was" + Integer.toString(thesum) + " , that means you are super thin " +"turn the phone to landscape mode to see a tip ");
+
+        }
+        else if(thesum >16 && thesum<25) {
+            t2.setText("Dear" + e3.getText() + "Your BMI was" + Integer.toString(thesum) + " , that means you are normal " +"turn the phone to landscape mode to see a tip ");
+
+        }
+        else if(thesum == 25 || (thesum >25 && thesum<35)) {
+            t2.setText("Dear" + e3.getText() + "Your BMI was" + Integer.toString(thesum) + " , that means you are fat " +"turn the phone to landscape mode to see a tip ");
+
+        }
+        else if(thesum ==35 || (thesum >35 && thesum<40)) {
+            t2.setText("Dear" + e3.getText() + "Your BMI was" + Integer.toString(thesum) + " , that means you are super obese" + "turn the phone to landscape mode to see a tip ");
+
+        }
+        else  {
+            t2.setText("Dear" + e3.getText() + "Your BMI was" + Integer.toString(thesum) + " , that means you are not human :l " + "turn the phone to landscape mode to see a tip ");
+
+        }
+
+
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
